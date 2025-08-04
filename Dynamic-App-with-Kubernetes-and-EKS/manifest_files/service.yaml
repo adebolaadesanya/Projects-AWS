@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: surveys
+  annotations:
+    alb.ingress.kubernetes.io/target-type: ip  # Ensures ALB can route to pods in private subnets
+spec:
+  selector:
+    app: backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort  # ALB routes traffic to private subnets

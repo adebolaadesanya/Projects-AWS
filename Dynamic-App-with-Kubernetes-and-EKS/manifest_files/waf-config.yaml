@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: waf-config
+  namespace: kube-system
+data:
+  waf-web-acl-arn: <your WAF Web ACL ARN>
